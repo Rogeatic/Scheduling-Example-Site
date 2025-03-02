@@ -1,0 +1,40 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (Model.EventsList.Any())
+{
+    <div class="text-center">
+        <h1 class="Home">Welcome to Scheduling Services.</h1>
+        <p>Navigate to the <a href="/Events">Events</a> to schedule more events</p>
+    </div>
+
+    <br />
+    <h3 class="Home">Upcoming Events</h3>
+    <br />
+    <ul class="home-events-list">
+        @foreach (var eventItem in Model.EventsList.OrderBy(e => e.Date).ThenBy(e => e.Time).Take(3))
+        {
+            <li class="event-capsule">
+                <div class="event-main">
+                    <span class="event-name">@eventItem.EventName</span>
+                    <span class="event-time">@eventItem.Time</span>
+                    <span class="event-date">@eventItem.Date</span>
+                </div>
+                @if (!string.IsNullOrEmpty(eventItem.Notes))
+                {
+                    <div class="event-notes">@eventItem.Notes</div>
+                }
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="Home">You have no scheduled events.</h1>
+        <p>Navigate to the <a href="/Events">Events</a> tab to begin</p>
+    </div>
+}

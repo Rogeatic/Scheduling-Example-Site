@@ -1,0 +1,69 @@
+﻿@page
+@model WebApplication1.Pages.EventsModel
+@{
+    ViewData["Title"] = "Events";
+}
+
+<h3>Create New Event</h3>
+
+<button class="NewEventButton" type="button" onclick="ToggleForm()">
+    <div class="button-content">
+        <span class="plus-sign">+</span>
+        <span>Create New Event</span>
+    </div>
+</button>
+
+@if (Model.ShowEventForm)
+{
+    <!-- Hidden Form (Revealed on Click) -->
+    <form id="eventForm" method="post">
+        <label class="EventInputTitle">Event Name:</label>
+        <input class="EventInput" type="text" asp-for="EventName" required /><br />
+
+        <label class="EventInputTitle">Date:</label>
+        <input class="EventInput" type="date" asp-for="EventDate" required /><br />
+
+        <label class="EventInputTitle">Time:</label>
+        <input class="EventInput" type="time" asp-for="EventTime" required /><br />
+
+        <label class="EventInputTitle">Event Notes:</label>
+        <input class="EventInput" type="text" asp-for="EventNotes" required /><br />
+
+        <button class="SubmitBtn" type="submit" name="action" value="Submit">Submit</button>
+    </form>
+}
+
+@if (Model.Message != null)
+{
+    <p style="color: green;">@Model.Message</p>
+}
+
+<div style="display: flex; align-items: center; gap: 10px;">
+    <h2 style="margin: 0;">Your Events</h2>
+    <p2 style="margin: 0;">- Last updated @ViewData["TimeStamp"]</p2>
+</div>
+<br />
+
+@if (Model.EventsList.Any())
+{
+    <ul class="home-events-list">
+        @foreach (var eventItem in Model.EventsList.OrderBy(e => e.Date).ThenBy(e => e.Time).Take(3))
+        {
+            <li class="event-capsule">
+                <div class="event-main">
+                    <span class="event-name">@eventItem.EventName</span>
+                    <span class="event-time">@eventItem.Time</span>
+                    <span class="event-date">@eventItem.Date</span>
+                </div>
+                @if (!string.IsNullOrEmpty(eventItem.Notes))
+                {
+                    <div class="event-notes">@eventItem.Notes</div>
+                }
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <p>No events recorded yet.</p>
+}
