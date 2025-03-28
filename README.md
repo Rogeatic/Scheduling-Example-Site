@@ -17,3 +17,8 @@ Since this is an example project, all data is stored in a local file instead of 
 ✅ Easy-to-use scheduling functionality✅ Simple file-based data storage✅ Quick setup – just download & run✅ Future plans for SQL integration
 
 Feel free to explore, modify, and improve! 🚀
+
+Here are some example images of the UI:
+![Adding](https://github.com/Rogeatic/Scheduling-Example-Site/blob/master/ExampleAdd.png)
+![Home](https://github.com/Rogeatic/Scheduling-Example-Site/blob/master/ExampleHome.png)
+![Events](https://github.com/Rogeatic/Scheduling-Example-Site/blob/master/ExampleEvents.png)
