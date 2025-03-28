@@ -1,6 +1,7 @@
 📅 Scheduling Tool
 
-Welcome to the Scheduling Tool! This project is a simple yet functional example of a scheduling application, designed to demonstrate core concepts without excessive complexity.
+Welcome to my primative Scheduling Tool! This project is a simple yet functional example of a scheduling application, designed to demonstrate core concepts without excessive complexity.
+I challenged myself to learn a new tool and within 2-3 days and see what I could come up with, and here it is!
 
 🚀 Quick Setup
 
@@ -10,7 +11,7 @@ Download or Clone the repository.
 
 Run the application – no extra setup required!
 
-Since this is an example project, all data is stored in a local file instead of an SQL database. This was done for scope and time reasons, but I plan to improve it by integrating a full database in the future.
+Since this is an example project, all data is stored in a local file instead of an SQL database. This was done for scope and time reasons, but I plan to improve it by integrating a full database in the future and adding google login support.
 
 📌 Features
 
